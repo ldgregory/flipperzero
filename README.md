@@ -109,51 +109,51 @@ python3 ./m1k_data_decoder.py -i path_to_.nfc/filename.nfc
 
 Output
 ```
-S:B     Hex     Dec     Oct     Char    Bin         nBin   nChar    nOct    nDec    nHex
-0:0     A2      162     242     ¢       1010001001011101       ]     135      93      5D
-0:0     B4      180     264     ´       1011010001001011       K     113      75      4B
-0:0     BA      186     272     º       1011101001000101       E     105      69      45
-0:0     C3      195     303     Ã       1100001100111100       <     074      60      3C
+S:B     Hex     Dec     Oct     Char    Bin           nBin   nChar    nOct    nDec    nHex
+0:0     A2      162     242     ¢       1010001  001011101       ]     135      93      5D
+0:0     B4      180     264     ´       1011010  001001011       K     113      75      4B
+0:0     BA      186     272     º       1011101  001000101       E     105      69      45
+0:0     C3      195     303     Ã       1100001  100111100       <     074      60      3C
 Card Checksum: 6F 08 04 00
 Calc Checksum: 5D 4B 45 3C MISMATCH
 
-S:B     Hex     Dec     Oct     Char    Bin         nBin   nChar    nOct    nDec    nHex
-0:1     54      84      124     T       0101010010101011       «     253     171      AB
-0:1     C0      192     300     À       1100000000111111       ?     077      63      3F
-0:1     F5      245     365     õ       1111010100001010     xxx     012      10      0A
-0:1     9F      159     237     xxx     1001111101100000       `     140      96      60
+S:B     Hex     Dec     Oct     Char    Bin           nBin   nChar    nOct    nDec    nHex
+0:1     54      84      124     T       01010100  10101011       «     253     171      AB
+0:1     C0      192     300     À       11000000  00111111       ?     077      63      3F
+0:1     F5      245     365     õ       11110101  00001010     xxx     012      10      0A
+0:1     9F      159     237     xxx     10011111  01100000       `     140      96      60
 Card Checksum: C2 0F C6 9A
 Calc Checksum: AB 3F 0A 60 MISMATCH
 
-S:B     Hex     Dec     Oct     Char    Bin         nBin   nChar    nOct    nDec    nHex
-0:2     52      82      122     R       0101001010101101       ­     255     173      AD
-0:2     00      0       000     xxx     0000000011111111       ÿ     377     255      FF
-0:2     04      4       004     xxx     0000010011111011       û     373     251      FB
-0:2     00      0       000     xxx     0000000011111111       ÿ     377     255      FF
+S:B     Hex     Dec     Oct     Char    Bin           nBin   nChar    nOct    nDec    nHex
+0:2     52      82      122     R       01010010  10101101       ­     255     173      AD
+0:2     00      0       000     xxx     00000000  11111111       ÿ     377     255      FF
+0:2     04      4       004     xxx     00000100  11111011       û     373     251      FB
+0:2     00      0       000     xxx     00000000  11111111       ÿ     377     255      FF
 Card Checksum: 01 00 00 00
 Calc Checksum: AD FF FB FF MISMATCH
 
-S:B     Hex     Dec     Oct     Char    Bin         nBin   nChar    nOct    nDec    nHex
-1:0     22      34      042     "       0010001011011101       Ý     335     221      DD
-1:0     00      0       000     xxx     0000000011111111       ÿ     377     255      FF
-1:0     02      2       002     xxx     0000001011111101       ý     375     253      FD
-1:0     00      0       000     xxx     0000000011111111       ÿ     377     255      FF
+S:B     Hex     Dec     Oct     Char    Bin           nBin   nChar    nOct    nDec    nHex
+1:0     22      34      042     "       00100010  11011101       Ý     335     221      DD
+1:0     00      0       000     xxx     00000000  11111111       ÿ     377     255      FF
+1:0     02      2       002     xxx     00000010  11111101       ý     375     253      FD
+1:0     00      0       000     xxx     00000000  11111111       ÿ     377     255      FF
 Card Checksum: 00 00 00 00
 Calc Checksum: DD FF FD FF MISMATCH
 
-S:B     Hex     Dec     Oct     Char    Bin         nBin   nChar    nOct    nDec    nHex
-1:1     22      34      042     "       0010001011011101       Ý     335     221      DD
-1:1     00      0       000     xxx     0000000011111111       ÿ     377     255      FF
-1:1     02      2       002     xxx     0000001011111101       ý     375     253      FD
-1:1     00      0       000     xxx     0000000011111111       ÿ     377     255      FF
+S:B     Hex     Dec     Oct     Char    Bin           nBin   nChar    nOct    nDec    nHex
+1:1     22      34      042     "       00100010  11011101       Ý     335     221      DD
+1:1     00      0       000     xxx     00000000  11111111       ÿ     377     255      FF
+1:1     02      2       002     xxx     00000010  11111101       ý     375     253      FD
+1:1     00      0       000     xxx     00000000  11111111       ÿ     377     255      FF
 Card Checksum: 00 00 00 00
 Calc Checksum: DD FF FD FF MISMATCH
 
-S:B     Hex     Dec     Oct     Char    Bin         nBin   nChar    nOct    nDec    nHex
-4:0     AB      171     253     «       1010101101010100       T     124      84      54
-4:0     41      65      101     A       0100000110111110       ¾     276     190      BE
-4:0     5D      93      135     ]       0101110110100010       ¢     242     162      A2
-4:0     53      83      123     S       0101001110101100       ¬     254     172      AC
+S:B     Hex     Dec     Oct     Char    Bin           nBin   nChar    nOct    nDec    nHex
+4:0     AB      171     253     «       10101011  01010100       T     124      84      54
+4:0     41      65      101     A       01000001  10111110       ¾     276     190      BE
+4:0     5D      93      135     ]       01011101  10100010       ¢     242     162      A2
+4:0     53      83      123     S       01010011  10101100       ¬     254     172      AC
 Card Checksum: 60 30 00 2C
 Calc Checksum: 54 BE A2 AC MISMATCH
 
