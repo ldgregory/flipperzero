@@ -98,7 +98,7 @@ def main():
                         tracking["counter"] += 1
                     encodings[ctr]["calc_checksum"] = track_calc_checksum
     
-    cw = tracking["column_width"]  # Shorter variable name for use below
+    cw = tracking["column_width"] + 1  # Shorter variable name for use below
     print(f'{"S:B":<{cw}}{"Hex":<{cw}}{"Dec":<{cw}}{"Oct":<{cw}}{"Char":<{cw}}{"Bin":<{cw}}{"nBin":>{cw}}{"nChar":>{cw}}{"nOct":>{cw}}{"nDec":>{cw}}{"nHex":>{cw}}')
     
     block_ctr = 1
