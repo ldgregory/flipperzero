@@ -68,12 +68,12 @@ def main():
 
     for sector in block_data:
         for block in block_data[sector]:
-            # Get Manufacturer UID - Based on 7 byte right now
+            # Get Manufacturer info - Based on 4 byte right now
             if sector == 0 and block == 0:
                 tracking["uid"] = block_data[sector][block][:11]
                 tracking["bcc"] = block_data[sector][block][12:14]
                 tracking["sak"] = block_data[sector][block][15:17]
-                tracking["atqa"] = block_data[sector][block][18:23]
+                tracking["atqa"] = block_data[sector][block][21:24] + block_data[sector][block][18:20]
                 tracking["manufacturer_data"] = block_data[sector][block][24:]
 
             if block != 3:
