@@ -38,8 +38,6 @@ from pprint import pprint
 def main():
     parser = argparse.ArgumentParser(description='M1K Data Decoder')
     parser.add_argument('-i', type=str, help='Input filename', dest='inputFile')
-    parser.add_argument('-o', type=str, help='Output filename', dest='outputFile')
-    parser.add_argument('-d', help='Display all stored TOTP codes', action='store_true', dest='totpDecrypt')
     parser.add_argument('-v', action='version', version='%(prog)s 0.1', dest='version')
     args = parser.parse_args()
 
