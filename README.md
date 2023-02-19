@@ -2,6 +2,7 @@
 * base_encoder.py - Base converter to help with decoding various types of data. Standalone and importable as a module.
 * m1k_access_decoder.py - Decodes access rights for blocks in a sector of a MIFARE Classic 1K EV1.
 * m1k_data_decoder.py - Attempts to decode data from blocks in each sector. Requires base_encoder.py.
+* ntag_213_decoder.py - Down and dirty conversion of paged hex data to ASCII.
 * mifare_nfc_cards - MIFARE Classic 1K EV1 cards in .nfc format from Flipper Zero. Some have keys, some do not.
 
 
