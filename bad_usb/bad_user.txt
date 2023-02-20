@@ -1,0 +1,74 @@
+REM Name: Bad User
+REM Author: ldgregory
+REM Description: MS Word notice to lock their screen when they leave
+REM Target: Windows with MS Word
+DELAY 1000
+GUI r
+DELAY 300
+STRING winword /w
+DELAY 300
+ENTER
+DELAY 5000
+STRING BAD USER!!!
+DELAY 300
+ENTER
+DELAY 300
+ENTER
+DELAY 300
+STRING Go stand in the corner!
+DELAY 600
+CTRL A
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL ]
+CTRL B
+CTRL E
+ENTER
+ENTER
+ENTER
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+CTRL [
+STRING Please lock your computer when you leave!
+ALT V
+STRING U
+GUI L
