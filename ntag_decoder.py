@@ -28,21 +28,26 @@ import argparse
 import re
 
 def main():
-    parser = argparse.ArgumentParser(description='M1K Data Decoder')
+    parser = argparse.ArgumentParser(description='NTAG Decoder')
     parser.add_argument('-i', type=str, help='Input filename', dest='inputFile')
     parser.add_argument('-v', action='version', version='%(prog)s 0.1', dest='version')
     args = parser.parse_args()
 
     if args.inputFile:
         data = ''
+        bad_nibbles = []
         block_match = re.compile(r'^.*\:\s(.*)$')
+        for x in range(0, 32):
+            bad_nibbles.append(format(x, '02x').upper())
 
         with open(args.inputFile, 'r') as fh:
             for line in fh:
                 if line.startswith('Page '):
                     match = re.match(block_match, line)
                     try:
-                        data += bytes.fromhex(match[1].replace(' ', '')).decode("ASCII")
+                        for nibble in match[1].split(' '):
+                            if nibble.upper() not in bad_nibbles:
+                                data += bytes.fromhex(nibble).decode("ASCII") 
                     except:
                         pass
 
