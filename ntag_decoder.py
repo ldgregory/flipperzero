@@ -2,13 +2,14 @@
 
 """
 Leif Gregory <leif@devtek.org>
-NTAG-213 Data Decoder
+NTAG-NFC Data Decoder
 Tested to Python v3.10.7
 
 Consumes .nfc files as written by Flipper Zero and converts the hex to ASCII 
 for relevant data pages.
 
 Changelog
+20230222 -  Clean up code
 20230219 -  Initial Code
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -34,7 +35,6 @@ def main():
     args = parser.parse_args()
 
     if args.inputFile:
-        bad_nibbles = []
         block_match = re.compile(r'^.*\:\s(.*)$')
         data = ''
         last_nibble = ''
