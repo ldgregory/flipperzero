@@ -56,8 +56,9 @@ def main():
                                     pass
                             last_nibble = nibble
                     page += 1
-
         print(data)
+    else:
+        print('Please specify a file to decode')
 
 
 if __name__ == '__main__':
