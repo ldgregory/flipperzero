@@ -6,7 +6,7 @@ NTAG-213 Data Decoder
 Tested to Python v3.10.7
 
 Consumes .nfc files as written by Flipper Zero and converts the hex to ASCII 
-for all pages.
+for relevant data pages.
 
 Changelog
 20230219 -  Initial Code
@@ -28,28 +28,34 @@ import argparse
 import re
 
 def main():
-    parser = argparse.ArgumentParser(description='NTAG Decoder')
+    parser = argparse.ArgumentParser(description='NTAG NFC Decoder')
     parser.add_argument('-i', type=str, help='Input filename', dest='inputFile')
     parser.add_argument('-v', action='version', version='%(prog)s 0.1', dest='version')
     args = parser.parse_args()
 
     if args.inputFile:
-        data = ''
         bad_nibbles = []
         block_match = re.compile(r'^.*\:\s(.*)$')
-        for x in range(0, 32):
-            bad_nibbles.append(format(x, '02x').upper())
+        data = ''
+        last_nibble = ''
+        page = 0
+        stop_collecting = 0
 
         with open(args.inputFile, 'r') as fh:
             for line in fh:
                 if line.startswith('Page '):
-                    match = re.match(block_match, line)
-                    try:
+                    if page > 6:  # The data we're after starts on page 6
+                        match = re.match(block_match, line)
                         for nibble in match[1].split(' '):
-                            if nibble.upper() not in bad_nibbles:
-                                data += bytes.fromhex(nibble).decode("ASCII") 
-                    except:
-                        pass
+                            if f'{last_nibble}{nibble}' == 'FE00':
+                                stop_collecting = 1
+                            if stop_collecting != 1:
+                                try:
+                                    data += bytes.fromhex(nibble).decode("ascii")
+                                except:
+                                    pass
+                            last_nibble = nibble
+                    page += 1
 
         print(data)
 

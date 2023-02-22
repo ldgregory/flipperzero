@@ -69,6 +69,11 @@ CTRL [
 CTRL [
 CTRL [
 STRING Please lock your computer when you leave!
+ENTER
+ENTER
+STRING Press the Escape key 
+ENTER
+STRING to exit this message
 ALT V
 STRING U
 GUI L
