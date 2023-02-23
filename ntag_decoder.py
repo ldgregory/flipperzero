@@ -9,6 +9,7 @@ Consumes .nfc files as written by Flipper Zero and converts the hex to ASCII
 for relevant data pages.
 
 Changelog
+20230223 -  Refactor code a bit
 20230222 -  Clean up code
 20230219 -  Initial Code
 
@@ -27,6 +28,7 @@ limitations under the License.
 
 import argparse
 import re
+from sys import exit
 
 def main():
     parser = argparse.ArgumentParser(description='NTAG NFC Decoder')
@@ -35,28 +37,22 @@ def main():
     args = parser.parse_args()
 
     if args.inputFile:
-        block_match = re.compile(r'^.*\:\s(.*)$')
+        block_match = re.compile(r'^Page\s(\d{1,2}):\s(.*)$')
         data = ''
-        last_nibble = ''
-        page = 0
-        stop_collecting = 0
 
         with open(args.inputFile, 'r') as fh:
             for line in fh:
-                if line.startswith('Page '):
-                    if page > 6:  # The data we're after starts on page 6
-                        match = re.match(block_match, line)
-                        for nibble in match[1].split(' '):
-                            if f'{last_nibble}{nibble}' == 'FE00':
-                                stop_collecting = 1
-                            if stop_collecting != 1:
+                if match := re.match(block_match, line):
+                    if int(match[1]) > 6:  # Data starts on page 7
+                        for nibble in match[2].split(' '):
+                            if nibble != 'FE':  # End of data marked by FE
                                 try:
                                     data += bytes.fromhex(nibble).decode("ascii")
                                 except:
-                                    pass
-                            last_nibble = nibble
-                    page += 1
-        print(data)
+                                    pass  # Non-ASCII character, move on
+                            else:
+                                print(data)
+                                exit()
     else:
         print('Please specify a file to decode')
 
