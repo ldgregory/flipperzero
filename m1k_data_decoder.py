@@ -42,6 +42,8 @@ def main():
     args = parser.parse_args()
 
     # Init dictionary for all encoding data and set up some tracking parameters
+    # column_width is critical for proper printing of columns, counter is
+    # critical for keeping track of multi-inputs in encodings dict. 
     tracking = {"counter": 1, "column_width": 1}
     encodings = {}
 
