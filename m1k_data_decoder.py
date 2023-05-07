@@ -15,6 +15,7 @@ For more information on MIFARE Classic EV1 1K cards
 https://www.nxp.com/docs/en/data-sheet/MF1S50YYX_V1.pdf
 
 Changelog
+20230507 -  Bug fix for blocks that weren't decrypted. i.e. ?? in data
 20230121 -  Initial Code
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -81,7 +82,7 @@ def main():
                 data = block_data[sector][block][:11]
 
                 # Only process first four if they aren't all zeros
-                if not re.match('^(00\s?){4}$', data):
+                if not re.match('^(00\s?){4}$|^\?', data):
                     track_calc_checksum = ''
 
                     for element in data.split(' '):
